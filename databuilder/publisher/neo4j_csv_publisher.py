@@ -426,7 +426,7 @@ class Neo4jCsvPublisher(Publisher):
         try:
             LOGGER.debug('Executing statement: %s with params %s', stmt, params)
 
-            result = tx.run(str(stmt), 'ignore'), parameters=params)
+            result = tx.run(str(stmt), parameters=params)
             if expect_result and not result.single():
                 raise RuntimeError(f'Failed to executed statement: {stmt}')
 
